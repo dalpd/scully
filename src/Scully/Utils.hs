@@ -1,3 +1,4 @@
+-- | A module for utilities used/provided by scully.
 module Scully.Utils
   ( accessKey
   )

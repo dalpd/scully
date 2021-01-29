@@ -1,6 +1,6 @@
-{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE DerivingStrategies        #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving#-}
--- |
+-- | Shared types for scully.
 module Scully.Types
   ( CPTable,
   )
@@ -8,7 +8,7 @@ where
 
 ------------------------------------------------------------------------------
 
-import Data.Aeson (FromJSON)
+import Data.Aeson (FromJSON, Value)
 import qualified Data.Aeson as A
 import Data.Text (Text)
 
@@ -18,8 +18,9 @@ import Data.Text (Text)
 newtype CPTable = CPTable [CPRecord]
   deriving newtype Show
 
+-- | `FromJSON` instance of `CPTable`.
 instance FromJSON CPTable where
-  parseJSON = A.withObject "Table" $ \o -> do
+  parseJSON = A.withObject "CPTable" $ \o -> do
     records <- o A..: "records"
     pure $
       CPTable records
@@ -27,11 +28,19 @@ instance FromJSON CPTable where
 ------------------------------------------------------------------------------
 
 -- |
-newtype CPRecord = CPRecord Text
-  deriving newtype Show
+data CPRecord = CPRecord
+  { _c_p_record_id :: Text,
+    _c_p_record_fields :: Value
+  }
+  deriving stock Show
 
+-- | `FromJSON` instance of `CPRecord`.
 instance FromJSON CPRecord where
   parseJSON = A.withObject "CPRecord" $ \o -> do
-    fields <- o A..: "records"
+    cPRecordId <- o A..: "id"
+    cPRecordFields <- o A..: "fields"
     pure $
-      CPRecord fields
+      CPRecord
+        { _c_p_record_id = cPRecordId,
+          _c_p_record_fields = cPRecordFields
+        }
