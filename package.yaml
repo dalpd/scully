@@ -1,4 +1,4 @@
-name: tablecloth
+name: scully
 version: 0.1.0.0
 synopsis: Haskell wrapper for Airtable API. 
 maintainer: Deniz Alp Durmaz <denizalpd@ogr.iu.edu.tr>

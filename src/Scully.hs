@@ -1,5 +1,5 @@
 -- | 
-module Tablecloth
+module Scully
   ( main
   )
 where
@@ -8,8 +8,8 @@ where
 
 import Data.Text (Text)
 
-import Tablecloth.Client (listRecords)
-import Tablecloth.Utils (accessKey)
+import Scully.Client (listRecords)
+import Scully.Utils (accessKey)
 
 ------------------------------------------------------------------------------
 main :: IO ()

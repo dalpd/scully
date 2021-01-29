@@ -1,14 +1,14 @@
 {-# LANGUAGE DataKinds     #-}
 {-# LANGUAGE TypeOperators #-}
 -- |
-module Tablecloth.API
+module Scully.API
   ( listRecords,
   )
 where
 
 ------------------------------------------------------------------------------
 
-import Tablecloth.Types
+import Scully.Types
 
 import Data.Text (Text)
 import Data.Proxy (Proxy (..))

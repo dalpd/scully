@@ -1,5 +1,5 @@
 -- | A set of helper functions to interact with Airtable API.
-module Tablecloth.Client
+module Scully.Client
   ( listRecords,
   )
 where
@@ -12,10 +12,9 @@ import  Network.HTTP.Client.TLS (tlsManagerSettings)
 import  Network.HTTP.Client (newManager)
 import  Servant.Client (BaseUrl (..), ClientError, ClientEnv,
                                  Scheme (Https), mkClientEnv, runClientM)
-
-import qualified Tablecloth.API as API
-import Tablecloth.Utils (accessKey)
-import Tablecloth.Types (CPTable)
+import qualified Scully.API as API
+import Scully.Utils (accessKey)
+import Scully.Types (CPTable)
 
 ------------------------------------------------------------------------------
 

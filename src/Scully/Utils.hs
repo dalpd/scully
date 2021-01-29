@@ -1,4 +1,4 @@
-module Tablecloth.Utils
+module Scully.Utils
   ( accessKey
   )
 where 

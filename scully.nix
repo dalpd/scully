@@ -1,6 +1,6 @@
 { mkDerivation, base, ghcid, nixfmt, stdenv, zlib }:
 mkDerivation {
-  pname = "tablecloth";
+  pname = "scully";
   version = "0.1.0.0";
   src = ./.;
   isLibrary = true;

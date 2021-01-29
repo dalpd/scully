@@ -1,4 +1,4 @@
-# Revision history for tablecloth
+# Revision history for scully
 
 ## 0.1.0.0 -- YYYY-mm-dd
 

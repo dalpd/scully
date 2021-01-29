@@ -1,1 +1,1 @@
---command "cabal new-repl tablecloth"
+--command "cabal new-repl scully"

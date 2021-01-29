@@ -1,8 +1,8 @@
 {-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving#-}
 -- |
-module Tablecloth.Types
-  ( CPTable
+module Scully.Types
+  ( CPTable,
   )
 where
 

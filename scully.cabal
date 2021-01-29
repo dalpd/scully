@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           tablecloth
+name:           scully
 version:        0.1.0.0
 synopsis:       Haskell wrapper for Airtable API.
 category:       Web
@@ -18,13 +18,13 @@ extra-source-files:
 
 library
   exposed-modules:
-      Tablecloth
-      Tablecloth.API
-      Tablecloth.Client
-      Tablecloth.Types
-      Tablecloth.Utils
+      Scully
+      Scully.API
+      Scully.Client
+      Scully.Types
+      Scully.Utils
   other-modules:
-      Paths_tablecloth
+      Paths_scully
   hs-source-dirs:
       src
   default-extensions: OverloadedStrings RecordWildCards LambdaCase
