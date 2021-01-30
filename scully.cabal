@@ -23,10 +23,15 @@ library
       Scully.Client
       Scully.Types
       Scully.Utils
+      BaseSpecific.ContentCalendar
+      BaseSpecific.ContentCalendar.API
+      BaseSpecific.ContentCalendar.Client
+      BaseSpecific.ContentCalendar.Types
   other-modules:
       Paths_scully
   hs-source-dirs:
       src
+      example
   default-extensions: OverloadedStrings RecordWildCards LambdaCase
   ghc-options: -Wall
   build-depends:

@@ -19,7 +19,9 @@ dependencies:
   - base
 
 library:
-  source-dirs: src
+  source-dirs:
+    - src
+    - example
   dependencies:
     - aeson
     - http-client

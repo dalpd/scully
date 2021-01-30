@@ -1,11 +1,12 @@
 -- | A basic executable for scully to test things out.
-module Scully
+module BaseSpecific.ContentCalendar
   ( main
   )
 where
 
 ------------------------------------------------------------------------------
 
+import BaseSpecific.ContentCalendar.Client (listRecords)
 import Scully.Utils (accessKey)
 
 ------------------------------------------------------------------------------
@@ -14,4 +15,5 @@ import Scully.Utils (accessKey)
 main :: IO ()
 main = do
   key <- accessKey "api_key"
-  print key
+  records <- listRecords (Just $ "Bearer " <> key) Nothing Nothing
+  print records
