@@ -6,6 +6,7 @@ module Scully.Utils
     -- ^ Servant API utilities
     RequiredQueryParam,
     StrictHeader,
+    GetJSON,
 
     -- ^ Servant Client utilities
     defaultEnv,
@@ -32,6 +33,8 @@ type RequiredQueryParam = QueryParam' '[Required]
 -- | Type synonym for strict headers.
 type StrictHeader = Header' '[Strict] 
 
+-- | Type synonym for GET operations returning JSON.
+type GetJSON returnType = Get '[JSON] returnType
 
 ------------------------------------------------------------------------------
 
@@ -54,7 +57,7 @@ mkBaseUrl version baseId =
   where
     baseUrlHost = "api.airtable.com"
     baseUrlPort = 443
-    baseUrlPath = unpack version <> "/" <> unpack baseId
+    baseUrlPath = unpack version <> "/meta"
 
 ------------------------------------------------------------------------------
 
