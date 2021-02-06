@@ -1,32 +1,11 @@
-{-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
--- | Shared types for scully.
+-- |
 module Scully.Types
-  ( -- * Top level return types for Airtable Metadata API.
-    Bases,
-    Tables,
-
-    BaseId,
+  ( module ExportBaseTypes,
+    module ExportTableTypes
   )
 where
 
 ------------------------------------------------------------------------------
 
-import Data.Aeson (FromJSON)
-import Data.Text (Text)
-
-------------------------------------------------------------------------------
-
-type BaseId = Text
-
-newtype Bases = Bases [Base]
-
-newtype Tables = Tables [Table]
-
-data Table = Table
-  {
-  }
-
-data Base = Base
-  {
-  }
+import Scully.Types.Base as ExportBaseTypes
+import Scully.Types.Table as ExportTableTypes

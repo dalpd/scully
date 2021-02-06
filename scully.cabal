@@ -22,6 +22,8 @@ library
       Scully.API
       Scully.Client
       Scully.Types
+      Scully.Types.Base
+      Scully.Types.Table
       Scully.Utils
       BaseSpecific.ContentCalendar
       BaseSpecific.ContentCalendar.API
@@ -39,6 +41,7 @@ library
     , base
     , http-client
     , http-client-tls
+    , lens
     , load-env
     , servant
     , servant-client
