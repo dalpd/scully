@@ -42,8 +42,7 @@ type GetJSON returnType = Get '[JSON] returnType
 defaultEnv :: IO ClientEnv
 defaultEnv = do
   manager <- newManager tlsManagerSettings
-  baseId <- accessKey "base_id"
-  pure $ mkClientEnv manager $ mkBaseUrl version baseId
+  pure $ mkClientEnv manager $ mkBaseUrl version
   where    
     version = "v0"
 
@@ -51,8 +50,8 @@ defaultEnv = do
 
 -- | Construct a `BaseUrl` for Airtable (Metadata) API given an API version
 -- and a base id.
-mkBaseUrl :: Text -> Text -> BaseUrl
-mkBaseUrl version baseId =
+mkBaseUrl :: Text -> BaseUrl
+mkBaseUrl version =
   BaseUrl Https baseUrlHost baseUrlPort baseUrlPath
   where
     baseUrlHost = "api.airtable.com"
