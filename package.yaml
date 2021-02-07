@@ -30,5 +30,6 @@ library:
     - lens
     - servant
     - servant-client
+    - servant-foreign
     - text
     - tls

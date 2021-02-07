@@ -45,6 +45,7 @@ library
     , load-env
     , servant
     , servant-client
+    , servant-foreign
     , text
     , tls
   default-language: Haskell2010
