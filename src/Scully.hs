@@ -7,11 +7,15 @@ where
 ------------------------------------------------------------------------------
 
 import Scully.Utils (accessKey)
+import Scully.Client (listBases)
 
 ------------------------------------------------------------------------------
 
 -- | Entry point of the scully executable.
 main :: IO ()
 main = do
-  key <- accessKey "api_key"
-  print key
+  apiKey <- accessKey "api_key"
+  userAPIKey <- accessKey "user_api_key"
+  listBases apiKey userAPIKey >>= \case
+    Left clientError -> print clientError
+    Right bases -> print bases

@@ -13,22 +13,29 @@ where
 
 ------------------------------------------------------------------------------
 
-import Control.Lens (Iso', iso)
+import Control.Lens (Iso', iso, view)
 import Data.Aeson (FromJSON)
 import qualified Data.Aeson as A
 import Data.Text (Text)
+import Servant.API (ToHttpApiData, toUrlPiece)
 
 ------------------------------------------------------------------------------
 
 -- | Newtype wrapper for base identifiers.
 newtype BaseId = BaseId Text
-  deriving newtype FromJSON
+  deriving newtype (FromJSON, Show)
+
+-- | >>> toUrlPiece $ BaseId "id"
+-- "id"
+instance ToHttpApiData BaseId where
+  toUrlPiece (BaseId bid) = bid
+
 
 ------------------------------------------------------------------------------
 
 -- | Newtype wrapper for base names.
 newtype BaseName = BaseName Text
-  deriving newtype FromJSON
+  deriving newtype (FromJSON, Show)
 
 ------------------------------------------------------------------------------
 
@@ -41,6 +48,8 @@ data BasePermissionLevel
   | BasePermissionLevel_Edit
   | BasePermissionLevel_Create
 
+instance Show BasePermissionLevel where
+  show level = show $ view basePermissionLevelText level
 
 -- | Iso to go between BasePermissionLevel and Text.
 basePermissionLevelText :: Iso' BasePermissionLevel Text
@@ -75,6 +84,7 @@ data Base = Base
     _base_name :: BaseName,
     _base_permissionLevel :: BasePermissionLevel
   }
+  deriving stock Show
 
 instance FromJSON Base where
   parseJSON = A.withObject "Base" $ \o -> do
@@ -87,6 +97,7 @@ instance FromJSON Base where
 
 -- | Newtype wrapper for the response "list bases" endpoint returns.
 newtype Bases = Bases [Base]
+  deriving Show
 
 instance FromJSON Bases where
   parseJSON = A.withObject "Bases" $ \o -> do
