@@ -1,5 +1,8 @@
 # scully
-Haskell wrapper for Airtable API.
+
+![Haskell CI](https://github.com/dalpd/scully/workflows/Haskell%20CI/badge.svg)
+
+Scully is a Haskell client for the [Airtable (Metadata) API].
 
 ## Try it out
 ```
@@ -8,3 +11,6 @@ Haskell wrapper for Airtable API.
 λ> ./shell.nix --pure
 λ> cabal new-repl
 ```
+
+
+[Airtable (Metadata) API]: https://airtable.com/api/meta
